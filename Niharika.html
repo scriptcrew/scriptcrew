@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coding Website - Catch the Falling Objects</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="title">ScriptCrew</div>
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="Projects.html">Projects</a>
+      <a href="trying.html">Socials</a>
+      <a href="scholar.html">Opportunities</a>
+    </div>
+  </div>
+
+  <div class="project-hero">
+    <h1>Temperature Converter</h1>
+    <p class="author-name">Niharika</p>
+  </div>
+
+  <div class="project-content">
+    <div class="project-description">
+      <h2>Step-by-Step Instructions</h2>
+
+      <div class="step-container">
+      <div class="step active">
+
+            <h2>Step 1: Create the Main Structure</h2>
+            <p>Start by creating a new Java file:</p>
+            <ol>
+                <li>Open your text editor or IDE.</li>
+                <li>Create a new file named <strong>Main.java</strong>.</li>
+            </ol>
+            <p>Declare the Main Class:</p>
+           <pre> <code>public class Main {
+           
+  }</pre></code>
+            <p>Add the <strong>main</strong> Method:</p>
+            <pre><code>public static void main(String[] args) {
+            
+ }</pre></code>
+        </div>
+      <div class="step">
+              <h2>Step 2: Set Up User Input</h2>
+            <p>Import the Scanner Class:</p>
+            <pre><code>import java.util.Scanner; </pre></code>
+            <p>Create a Scanner Object:</p>
+        <pre><code>Scanner scanner = new Scanner(System.in);</pre></code>
+      </div>
+        <div class="step">
+                      <h2>Step 3: Display Menu Options</h2>
+            <p>Print the Menu:</p>
+          <pre><code>System.out.println("Temperature Converter");
+System.out.println("1. Celsius to Fahrenheit");
+System.out.println("2. Celsius to Kelvin");
+System.out.println("3. Fahrenheit to Celsius");
+System.out.println("4. Fahrenheit to Kelvin");
+System.out.println("5. Kelvin to Celsius");
+System.out.println("6. Kelvin to Fahrenheit");
+System.out.print("Choose an option (1-6): ");</pre></code>
+        </div>
+        
+        
+           <div class="step">
+            <h2>Step 4: Get User Input</h2>
+            <p>After displaying the menu, you need to read the user’s choice. This reads an integer from the user, which represents their choice:
+</p>
+            <pre><code>int choice = scanner.nextInt();</pre></code>
+            <p>Read the Temperature:</p>
+            <pre><code>System.out.print("Enter the temperature: ");
+double temperature = scanner.nextDouble();</pre></code>
+        </div>     
+               
+        
+        
+         <div class="step">
+           <h2>Step 5: Perform the Conversion</h2>
+            <p>Write Conversion Methods:</p>
+            <pre><code> public static double celsiusToFahrenheit(double celsius) {
+return (celsius * 9/5) + 32;
+}
+
+public static double celsiusToKelvin(double celsius) {
+return celsius + 273.15;
+}
+
+public static double fahrenheitToCelsius(double fahrenheit) {
+return (fahrenheit - 32) * 5/9;
+}
+
+public static double fahrenheitToKelvin(double fahrenheit) {
+return (fahrenheit - 32) * 5/9 + 273.15;
+}
+
+public static double kelvinToCelsius(double kelvin) {
+                    return kelvin - 273.15;
+}
+
+public static double kelvinToFahrenheit(double kelvin) {
+return (kelvin - 273.15) * 9/5 + 32;
+}
+            </pre></code>
+        </div>  
+         <div class="step">
+         <h2>Step 6: Use Conditional Statements</h2>
+            <p>Check the User&rsquo;s Choice:</p>
+            <pre><code>if (choice == 1) {
+System.out.printf("%.2f Celsius = %.2f Fahrenheit%n", temperature, celsiusToFahrenheit(temperature));
+} else if (choice == 2) {
+System.out.printf("%.2f Celsius = %.2f Kelvin%n", temperature, celsiusToKelvin(temperature));
+} else if (choice == 3) {
+System.out.printf("%.2f Fahrenheit = %.2f Celsius%n", temperature, fahrenheitToCelsius(temperature));
+} else if (choice == 4) {
+System.out.printf("%.2f Fahrenheit = %.2f Kelvin%n", temperature, fahrenheitToKelvin(temperature));
+} else if (choice == 5) {
+System.out.printf("%.2f Kelvin = %.2f Celsius%n", temperature, kelvinToCelsius(temperature));
+} else if (choice == 6) {
+System.out.printf("%.2f Kelvin = %.2f Fahrenheit%n", temperature, kelvinToFahrenheit(temperature));
+} else {
+System.out.println("Invalid choice!");
+}</pre> </code>
+        </div>
+      </div>
+    <div class="step">
+                  <h2>Step 7: Close the Scanner</h2>
+            <p>It&rsquo;s good practice to close the Scanner when you&rsquo;re done using it:</p>
+            <pre><code>scanner.close();</pre></code>
+        </div>
+      <div class="step-navigation">
+        <button id="prev" class="nav-btn">Previous</button>
+        <button id="next" class="nav-btn">Next</button>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <div class="footer">
+    <p>&copy; 2024 ScriptCrew. All rights reserved.</p>
+  </div>
+  <div class="glow-effect" id="glowEffect"></div>
+  <div class="cursor-pointer" id="cursorPointer"></div>
+  <script src="script.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DD1LX3S8XM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DD1LX3S8XM');
+  </script>
+</body>
+</html>
