@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock, Paper, Scissors Game Tutorial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="title">ScriptCrew</div>
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="Projects.html">Projects</a>
+      <a href="trying.html">Socials</a>
+      <a href="scholar.html">Opportunities</a>
+    </div>
+  </div>
+
+  <div class="project-hero">
+    <h1>Rock, Paper, Scissors Game Tutorial</h1>
+    <p class="author-name">Natalie</p>
+  </div>
+
+  <div class="project-content">
+    <div class="project-description">
+      <h2>Step-by-Step Instructions</h2>
+
+      <div class="step-container">
+        <div class="step active">
+          <h2>Step 1: Setting up your file</h2>
+            
+          <p>Example Code: 
+            <a href="https://replit.com/@bellapink214/Rock-paper-scissors-Example" target="_blank">Rock-paper-scissors game</a>
+          </p>
+          
+          <p>Fork this Repl: 
+            <a href="https://replit.com/@bellapink214/Rock-paper-scissors-Starter-Code#main.py" target="_blank">Rock-paper-scissors Starter Code</a>
+          </p>
+          <p>This is what you should see:</p>
+                            <img src="https://i.ibb.co/bRqGfNQ/image.png" alt="image" style="width: 435px; height: auto;" border="0">
+
+        </div>
+
+        <div class="step">
+          <h2>Step 2: Create Your Variables</h2>
+          <p>You will have three variables that you will create. In Python, you typically name your variables with an underscore between words:</p>
+          <pre><code>new_variable = 0</code></pre>
+          <p>For this game, you need to create 3 variables: <code>player_wins</code>, <code>computer_wins</code>, and a list of what you or the computer can choose. Set <code>player_wins</code> and <code>computer_wins</code> to 0. To make a list, you do:</p>
+          <pre><code>new_list = ["option1", "option2", "option3"]</code></pre>
+        </div>
+
+        <div class="step">
+          <h2>Step 3: Make a while loop</h2>
+          <p>To start a while loop:</p>
+          <pre><code>while True:
+    #code</code></pre>
+          <p>Remember, in Python, indentation is very important. If you don’t indent code, it will not actually be in the loop.</p>
+        </div>
+
+        <div class="step">
+          <h2>Step 4: Inside the Loop - User input</h2>
+          <p>We want this game to be the player vs. computer, so we need a way to know what the user wants to pick:</p>
+          <pre><code>user_input = input("Words").lower()</code></pre>
+          <p>The <code>.lower</code> changes everything the user types to lowercase letters. Replace "Words" with what you want the player to see when they play (tell them what to do).</p>
+        </div>
+
+        <div class="step">
+          <h2>Step 5: Inside the Loop - Using user input</h2>
+          <p>The user will be able to type one of 3 things “rock”, “paper”, or “scissors” Add a quit option so it gives the user the chance to end the game and see their wins vs the computer wins. 
+Use break to do this:
+</p>
+          <pre><code>if user_input == "q":
+    break</code></pre>
+          <p>To make sure the user types in a valid response you can check whether user input is in the list of options you made. Use continue to try again:
+</p>
+          <pre><code>if user_input not in list:
+    print("Try again message")
+    continue</code></pre>
+        </div>
+
+        <div class="step">
+          <h2>Step 6: Computer choice</h2>
+          <p>Create a variable for a random number between 0 and 2:</p>
+          <p>The 0 to 2 represents the indices of the list of options you made. (Remember lists start at an index of 0)</p>
+          <pre><code>random_number = random.randint(0, 2)</code></pre>
+          <p>Use that number to get the computers option using the list, then print what the computer picked:</p>
+          <pre><code>computer_pick = options[random_number]
+print("Computer picked", computer_pick)</code></pre>
+        </div>
+
+        <div class="step">
+          <h2>Step 7: Win or Lose?</h2>
+          <p>For the user to be able to win or lose the game, you will need to compare their choice to the computer choice.</p><p>To do this you will use if statements and compare each possible situations. 
+To make this shorter you can only write when the user wins or tie and use only one elif for all user loses
+</p>
+          <pre><code>if user_input == "rock" and computer_pick == "scissors":
+    print("You win!!")
+    user_wins += 1
+elif user_input == "paper" and computer_pick == "rock":
+    print("You win!!!")
+    user_wins += 1
+elif user_input == "scissors" and computer_pick == "paper":
+    print("You win!")
+elif user_input == computer_pick:
+    print("Wow, it's a tie!")
+else:
+    print("You lost")
+    computer_wins += 1</code></pre>
+          <p>Pay attention to indentation, as it determines if code is part of a loop or block.</p>
+        </div>
+
+        <div class="step">
+          <h2>Step 8: Ending the game</h2>
+          <p>When the user types "q" to quit, end the game and show the results:</p>
+          <pre><code>print("You won", user_wins, "times")
+print("The computer won", computer_wins, "times")
+print("Goodbye!")</code></pre>
+        </div>
+      </div>
+
+      <div class="step-navigation">
+        <button id="prev" class="nav-btn">Previous</button>
+        <button id="next" class="nav-btn">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2024 ScriptCrew. All rights reserved.</p>
+  </div>
+  <div class="glow-effect" id="glowEffect"></div>
+  <div class="cursor-pointer" id="cursorPointer"></div>
+  <script src="script.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DD1LX3S8XM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DD1LX3S8XM');
+  </script>
+</body>
+</html>
+
+
