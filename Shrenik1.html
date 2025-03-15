@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather API Tutorial</title>
+  <link rel="stylesheet" href="style.css">
+  
+
+<style>
+  /* CSS for styling the comments */
+  .comment {
+    color: red;
+    font-style: italic; /* Optional, makes comments stand out more */
+  }
+
+  pre {
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+  }
+</style>
+  
+  
+</head>
+<body>
+  <div class="header">
+    <div class="title">ScriptCrew</div>
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="Projects.html">Projects</a>
+      <a href="trying.html">Socials</a>
+      <a href="scholar.html">Opportunities</a>
+    </div>
+  </div>
+
+  <div class="project-hero">
+    <h1>Weather API Tutorial</h1>
+    <p class="author-name">Shrenik Sairam</p>
+  </div>
+
+  <div class="project-content">
+    <div class="project-description">
+      <h2>Step-by-Step Instructions</h2>
+
+      <div class="step-container">
+        <div class="step active">
+          <h2>Step 1: Set Up a Virtual Environment</h2>
+          <p>Before writing the script, create and activate a virtual environment:</p>
+          <pre><code>python3 -m venv venv
+source venv/bin/activate  # Linux/macOS
+venv\Scripts\activate  # Windows</code></pre>
+        </div>
+
+        <div class="step">
+          <h2>Step 2: Install Required Library</h2>
+          <p>Inside the virtual environment, install the requests library:</p>
+          <pre><code>pip install requests</code></pre>
+        </div>
+
+        <div class="step">
+          <h2>Step 3: Get an OpenWeatherMap API Key</h2>
+          <p>Go to <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a>, sign up, and get your API key.</p>
+        </div>
+
+        <div class="step">
+          <h2>Step 4: Write the Python Script</h2>
+         <pre><code class="language-python">
+  <span class="comment"># Import the requests library to handle HTTP requests</span>
+  import requests
+
+  <span class="comment"># Change this to your desired city</span>
+  city_name = 'New Delhi'  <span class="comment"># Example: New Delhi</span>
+
+  <span class="comment"># Replace with your actual API key</span>
+  API_key = 'your_api_key_here'  
+
+  <span class="comment"># Construct the API URL with the specified city and API key</span>
+  url = f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={API_key}&units=metric'
+
+  <span class="comment"># Send a GET request to the API endpoint</span>
+  response = requests.get(url)
+
+  <span class="comment"># Check if the HTTP request was successful (status code 200 means success)</span>
+  if response.status_code == 200:
+      data = response.json()  <span class="comment">#Convert the JSON response into a Python dictionary</span>
+      
+      <span class="comment"># Extract and print weather information:</span>
+      <span class="comment"># 'weather' is a list that contains a dictionary with weather details. [0] is used to access the first element.</span>
+      <span class="comment"># 'description' provides a text summary of the weather (e.g., "clear sky", "rain").</span>
+      print('Weather:', data['weather'][0]['description'])
+      
+      <span class="comment"># 'main' is a key in the response containing temperature-related data.</span>
+      <span class="comment"># 'temp' holds the current temperature in Celsius.</span>
+      print('Temperature:', data['main']['temp'], '°C')
+      
+      <span class="comment"># 'feels_like' gives the perceived temperature based on humidity and wind conditions.</span>
+      print('Feels Like:', data['main']['feels_like'], '°C')
+      
+      <span class="comment"># 'humidity' holds the percentage of humidity in the air.</span>
+      print('Humidity:', data['main']['humidity'], '%')
+  else:
+      <span class="comment"># If the request was not successful, print an error message</span>
+      print("Error fetching data")
+</code></pre>
+        </div>
+      </div>
+
+      <div class="step-navigation">
+        <button id="prev" class="nav-btn">Previous</button>
+        <button id="next" class="nav-btn">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2024 ScriptCrew. All rights reserved.</p>
+  </div>
+  <div class="glow-effect" id="glowEffect"></div>
+  <div class="cursor-pointer" id="cursorPointer"></div>
+  <script src="script.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DD1LX3S8XM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DD1LX3S8XM');
+  </script>
+</body>
+</html>
